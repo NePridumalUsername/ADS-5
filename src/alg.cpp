@@ -25,7 +25,9 @@ std::string infx2pstfx(std::string inf) {
                     opsStack.pop();
                 }
                 opsStack.pop();
-            } else if (c == '(' || opsStack.isEmpty() || ops[c] > ops[opsStack.get()]) {
+            } else if (c == '(' || opsStack.isEmpty()) {
+                opsStack.push(c);
+            } else if (ops[c] > ops[opsStack.get()]) {
                 opsStack.push(c);
             } else {
                 while (ops[opsStack.get()] >= ops[c] && !opsStack.isEmpty()) {
@@ -55,8 +57,7 @@ int eval(std::string post) {
         std::size_t op = ops.find(c);
         if (op == std::string::npos) {
             operandsStack.push(c & 0xF);
-        }
-        else {
+        } else {
             int arg2 = operandsStack.get();
             operandsStack.pop();
             int arg1 = operandsStack.get();
