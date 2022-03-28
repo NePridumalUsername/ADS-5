@@ -2,10 +2,11 @@
 #ifndef INCLUDE_TSTACK_H_
 #define INCLUDE_TSTACK_H_
 
-template<class T, const int size>
+template<class T, int size>
 class TStack {
+
 private:
-T arr[size];
+T arr[20];
 int top;
 
 public:
