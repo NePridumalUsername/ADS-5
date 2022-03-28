@@ -54,8 +54,7 @@ if (c == ' ') continue;
 std::size_t op = ops.find(c);
 if (op == std::string::npos) {
 operandsStack.push(c & 0xF);
-}
-else {
+} else {
 int arg2 = operandsStack.get();
 operandsStack.pop();
 int arg1 = operandsStack.get();
